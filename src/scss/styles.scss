@@ -1,0 +1,229 @@
+$color-1: white;
+$color-2: #ffdd57;
+$color-3: transparent;
+$font-family-1: 'Arial', sans-serif;
+$background-color-1: rgb(0 0 0 / 0%);
+$background-color-2: black;
+
+@keyframes shine-right-to-left {
+  0% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+}
+
+@keyframes rainbow-border {
+  0% {
+    border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+  }
+
+  100% {
+    border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+  }
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -512px -512px;
+  }
+}
+
+@keyframes animated-text {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color_1;
+  color: $color_1;
+  font-family: $font-family_1;
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgb(44 44 44 / 60%);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 50%);
+  width: 450px;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 0 0 20px;
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 70%);
+  color: $color_2;
+}
+
+#ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgb(255 255 255 / 10%);
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color_2;
+  }
+}
+
+.entry {
+  box-shadow: 0 2px 5px rgb(0 0 0 / 40%);
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgb(0 0 0 / 70%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  height: 50px;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 5px;
+  color: $color_1;
+  font-size: 16px;
+  margin: 5px 0;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  span {
+    color: $color_1;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 50%);
+  }
+}
+
+.rank {
+  color: $color_2;
+}
+
+.subs {
+  font-weight: bold;
+  color: $color_2;
+  z-index: 999;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  font-weight: bold;
+  color: $color_1;
+  z-index: 999;
+}
+
+.flag {
+  width: 35px;
+  height: auto;
+  z-index: 999;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.glass-effect {
+  position: relative;
+  backdrop-filter: blur(10px);
+  color: $color_1;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  overflow: hidden;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  animation: rainbow-border 3s linear infinite;
+  z-index: 999;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 250%;
+    height: 300%;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgb(255 255 255 / 80%) 45%,
+      rgb(255 255 255 / 80%) 60%,
+      transparent 80%
+    );
+    transform: rotate(45deg);
+    filter: blur(5px);
+    animation: shine-right-to-left 3s infinite;
+    z-index: 99999;
+  }
+}
+
+.shaper {
+  background-color: $background-color_2;
+}
+
+.shade {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  background-image: linear-gradient(
+    to right,
+    rgb(34 42 51 / 100%) 5%,
+    rgb(0 0 0 / 0%) 40%,
+    rgb(0 0 0 / 0%) 60%,
+    rgb(34 42 51 / 100%) 95%
+  );
+}
+
+.winning {
+  padding-top: 50px;
+  background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+  background-clip: text;
+  color: $color_3;
+  display: inline;
+  background-size: 200% 100%;
+  animation: animated-text 5s linear infinite;
+  text-shadow:
+    0 0 25px rgb(255 255 255 / 50%),
+    0 0 50px rgb(255 255 255 / 60%),
+    0 0 70px rgb(255 0 255 / 80%),
+    0 0 90px rgb(255 0 255 / 100%);
+}

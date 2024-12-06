@@ -1,0 +1,33 @@
+{
+  "name": "subathonmeter",
+  "version": "1.0.0",
+  "main": "dist/script.js",
+  "scripts": {
+    "build": "tsc && sass src/scss/styles.scss dist/css/styles.css",
+    "sass": "sass --watch src/scss:dist/css",
+    "lint": "eslint src",
+    "stylelint": "stylelint --config .stylelintrc src/scss/**/*.scss",
+    "prettier-format": "prettier --config .prettierrc src/**/*.ts --write",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0"
+  },
+  "dependencies": {
+    "sass": "^1.82.0"
+  }
+}
